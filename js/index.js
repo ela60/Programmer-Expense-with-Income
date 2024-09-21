@@ -1,4 +1,4 @@
-const calculateButton = document.getElementById('calculate').addEventListener('click', function (event) {
+    const calculateButton = document.getElementById('calculate').addEventListener('click', function () {
     // event.preventDefault(); form ar jonno use only
     const income = parseFloat(document.getElementById('income').value);
     const software = parseFloat(document.getElementById('software').value);
@@ -62,79 +62,6 @@ const calculateButton = document.getElementById('calculate').addEventListener('c
     // insertBefor 2 ta value create kore (ki insert korbo and kothai insert korbo)
     historyContainer.insertBefore(historyItem,historyContainer.firstChild)
 });
-
-// calculate-savings button
-
-document.getElementById('calculate-savings').addEventListener('click', function () {
-
-    const savingPercentace = parseFloat(document.getElementById('savings').value);
-
-    const income = parseFloat(document.getElementById('income').value);
-    const software = parseFloat(document.getElementById('software').value);
-    const courses = parseFloat(document.getElementById('courses').value);
-    const internet = parseFloat(document.getElementById('internet').value);
-    
-    const totalExpenses = software + courses + internet;
-    const balance = income - totalExpenses;
-
-    const savingAmount = (savingPercentace * balance) / 100;
-
-    // remainig balance show
-    const remainingBalance = balance - savingAmount;
-    
-    // saving amount a dekhate chassi
-    const savingElement = document.getElementById('savings-amount');
-    savingElement.innerText = savingAmount.toFixed(2);
-
-    // remaining balance dekte chassi
-    const remainingElement = document.getElementById('remaining-balance');
-    remainingElement.innerText = remainingBalance.toFixed(2);
-   
-});
-
-// history tab funcunality 
-     const historyTab = document.getElementById('history-tab');
-    const assistentTab = document.getElementById('assistant-tab');
-     
-historyTab.addEventListener('click', function () {
-
-    historyTab.classList.add
-        ('text-white', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600');
-    historyTab.classList.remove('text-gray-600');
-    assistentTab.classList.remove(
-        'text-white', 'bg-gradient-to-r', 'from-blue-500',
-        'to-purple-600'
-    );
-    assistentTab.classList.add('text-gray-600');
-
-    //  remove expense form hidden
-    document.getElementById('expense-form').classList.add('hidden');
-
-    const historyRemove = document.getElementById('history-section');
-    historyRemove.classList.remove('hidden');
-});
-
-
-// back to assistant button or tab
-assistentTab.addEventListener('click', function () {
-
-    historyTab.classList.remove
-        ('text-white', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600');
-    historyTab.classList.add('text-gray-600');
-    assistentTab.classList.add(
-        'text-white', 'bg-gradient-to-r', 'from-blue-500',
-        'to-purple-600'
-    );
-    assistentTab.classList.remove('text-gray-600');
-
-    //  Back expense form hidden
-    document.getElementById('expense-form').classList.remove('hidden');
-    
-    // remove history hidden
-    document.getElementById('history-section').classList.add('hidden');
-
-});
-
 
 
 // live validation for income input
